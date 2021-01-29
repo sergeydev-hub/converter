@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>converter</title>
+</head>
+<body>
+    <div class="container">
+        <table id='tab_course'>
+            <tr>
+                <th>Валюта</th>
+                <th>Покупка</th>
+                <th>Продажа</th>
+            </tr>
+            <tr>
+                <td>USD</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>EUR</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>RUB</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <button>Новый курс</button>
+        <form class="converter">
+            <div>
+                <span>Меняю</span>
+            <input id="inpt_buy" autocomplete="off" type="text">
+            <select id="buys">
+                <option value="3">RUB</option>
+                <option value="1" selected>USD</option>
+                <option value="2">EUR</option>
+                <option value="0">UAH</option>
+            </select>
+            </div>
+            <img class="change" src="img/transfer.svg" alt="">
+            <div>
+                <span>Получаю</span>
+            <input id="inpt_sell" autocomplete="off" type="text">
+            <select id="sells">
+                <option value="3">RUB</option>
+                <option value="1">USD</option>
+                <option value="2">EUR</option>
+                <option value="0" selected>UAH</option>
+            </select>
+            </div>
+            <div>
+                <span>В наличии</span>
+                <input id='real' autocomplete="off" type="text">
+            </div>
+            <div>
+                <span>Сдача</span>
+                <input id="rest" type="text" value="0">
+            </div>
+        </form>
+    </div>
+    <script src="js/converter.js"></script>
+</body>
+</html>
