@@ -62,6 +62,11 @@ let inpt_sell = document.querySelector('#inpt_sell')
 let select1 = document.querySelector('#buys')
 let select2 = document.querySelector('#sells')
 
+function regex() {
+    if(this.value.match(/[^0-9\.]/g)){
+        this.value = this.value.replace(/[^0-9\.]/g, "");
+    };
+}
 let changeInputValue = function () {
     if(select1.value === select2.value) {
         inpt_sell.value = inpt_buy.value
@@ -72,7 +77,8 @@ let changeInputValue = function () {
     }
 }
 
-
+inpt_buy.addEventListener('input', regex)
+inpt_sell.addEventListener('input', regex)
 inpt_buy.addEventListener('input', changeInputValue)
 inpt_sell.addEventListener('input', () => {
     if(select1.value === select2.value) {
@@ -83,6 +89,7 @@ inpt_sell.addEventListener('input', () => {
         inpt_buy.value = String(Math.round((Math.round(Number(inpt_sell.value) * arrCourse[select2.value].sell * 100) / 100) / arrCourse[select1.value].buy * 100) / 100);
     }
 })
+
 select1.addEventListener('change', changeInputValue)
 select2.addEventListener('change', changeInputValue)
 
@@ -95,6 +102,7 @@ change.addEventListener('click', () => {
 })
 
 let real = document.querySelector('#real')
+real.addEventListener('input', regex)
 real.addEventListener('input', () => {
     let rest = Math.round((Number(inpt_buy.value) * arrCourse[select1.value].buy - Number(real.value) * arrCourse[select2.value].sell) * 100) / 100;
     document.querySelector('#rest').value = `${rest} грн`
